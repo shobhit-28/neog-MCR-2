@@ -4,7 +4,7 @@ import './activityDetailsModal.css'
 import { ActivityReducerContext } from '../../activityReducerContext/activityReducerContext'
 
 export const ActivityDetailsModal = ({ activity }) => {
-    const { isAcitivityDetailsModalOpen, setIsAcitivityDetailsModalOpen, setIsEditAcitivityDetailsModalOpen, deleteActivity } = useContext(ActivityReducerContext)
+    const { isAcitivityDetailsModalOpen, setIsAcitivityDetailsModalOpen, setIsEditAcitivityDetailsModalOpen, deleteActivity, addToArchive } = useContext(ActivityReducerContext)
 
     const editClickHandler = () => {
         setIsEditAcitivityDetailsModalOpen(true)
@@ -23,7 +23,7 @@ export const ActivityDetailsModal = ({ activity }) => {
                         <p className="name">{activity.startDate}</p>
                         <button className="edit" onClick={() => editClickHandler()}>Edit</button>
                         <button className="delete" onClick={() => deleteActivity(activity)}>Delete</button>
-                        <button className="archive">Archive</button>
+                        <button className="archive" onClick={() => addToArchive(activity)}>Archive</button>
                     </div>
                 </div>
             }
