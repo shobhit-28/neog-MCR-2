@@ -1,13 +1,24 @@
 /* eslint-disable react/prop-types */
 import { useContext } from 'react'
+import {useLocation} from 'react-router-dom'
 import './activityDetailsModal.css'
 import { ActivityReducerContext } from '../../activityReducerContext/activityReducerContext'
 
 export const ActivityDetailsModal = ({ activity }) => {
     const { isAcitivityDetailsModalOpen, setIsAcitivityDetailsModalOpen, setIsEditAcitivityDetailsModalOpen, deleteActivity, addToArchive } = useContext(ActivityReducerContext)
 
+    const location = useLocation()
+
     const editClickHandler = () => {
         setIsEditAcitivityDetailsModalOpen(true)
+        setIsAcitivityDetailsModalOpen(false)
+    }
+    const deleteClickHandler = () => {
+        deleteActivity(activity)
+        setIsAcitivityDetailsModalOpen(false)
+    }
+    const archiveClickHandler = () => {
+        addToArchive(activity)
         setIsAcitivityDetailsModalOpen(false)
     }
 
@@ -22,8 +33,8 @@ export const ActivityDetailsModal = ({ activity }) => {
                         <p className="name">{activity.timeOfDay}</p>
                         <p className="name">{activity.startDate}</p>
                         <button className="edit" onClick={() => editClickHandler()}>Edit</button>
-                        <button className="delete" onClick={() => deleteActivity(activity)}>Delete</button>
-                        <button className="archive" onClick={() => addToArchive(activity)}>Archive</button>
+                        <button className="delete" onClick={() => deleteClickHandler()}>Delete</button>
+                        {location.pathname === '/' && <button className="archive" onClick={() => archiveClickHandler()}>Archive</button>}
                     </div>
                 </div>
             }

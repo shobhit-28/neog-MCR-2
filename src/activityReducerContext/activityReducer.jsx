@@ -34,6 +34,9 @@ export const acitivityReducer = (state, action) => {
                 ...state,
                 activities: [
                     ...state.activities.filter((activity) => activity.id !== action.payload.id),
+                ],
+                archive: [
+                    ...state.archive.filter((activity) => activity.id !== action.payload.id),
                 ]
             })
 

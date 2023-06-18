@@ -61,6 +61,7 @@ export const ActivityReducerHandler = ({children}) => {
             deleteActivity,
             addToArchive,
             activities: state?.activities,
+            archive: state?.archive,
             isAcitivityModalOpen,
             setIsAcitivityModalOpen,
             isAcitivityDetailsModalOpen,
