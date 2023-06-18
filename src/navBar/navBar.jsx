@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import './navBar.css'
-import {BiArchiveIn} from 'react-icons/bi'
+import { BiArchiveIn } from 'react-icons/bi'
 import { AiTwotoneHome } from "react-icons/ai";
 
 export const NavBar = () => {

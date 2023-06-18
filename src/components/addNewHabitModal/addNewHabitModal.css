@@ -1,0 +1,15 @@
+.add-activity-container {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+}
+
+.add-new-activity-modal {
+    width: 30%;
+    background-color: #fff;
+}
