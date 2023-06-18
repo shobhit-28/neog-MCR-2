@@ -4,13 +4,23 @@ import { ActivityReducerContext } from '../../activityReducerContext/activityRed
 
 export const AddNewHabitModal = () => {
     const [activity, setActivity] = useState({
+        id: '',
         name: '',
-        repeat: '',
-        goal: '',
-        timeOfDay: '',
-        startDate: ''
+        repeat: 'Daily',
+        goal: '1 time daily',
+        timeOfDay: 'Morning',
+        startDate: 'Today'
     })
-    const {isAcitivityModalOpen, setIsAcitivityModalOpen} = useContext(ActivityReducerContext)
+    const {isAcitivityModalOpen, setIsAcitivityModalOpen, addActivity} = useContext(ActivityReducerContext)
+
+    const saveClickHandler = () => {
+        addActivity(activity)
+        setIsAcitivityModalOpen(false)
+    }
+
+    const discardHandler = () => {
+        setIsAcitivityModalOpen(false)
+    }
 
     return (
         <>
@@ -56,8 +66,8 @@ export const AddNewHabitModal = () => {
                             </select>
                         </label>
                         <div className="btn-container">
-                            <button className="discard">Discard</button>
-                            <button className="Save">Save</button>
+                            <button className="discard" onClick={() => discardHandler()}>Discard</button>
+                            <button className="Save" onClick={() => saveClickHandler()}>Save</button>
                         </div>
                     </div>
                 </div>)
